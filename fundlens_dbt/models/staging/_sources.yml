@@ -6,6 +6,11 @@ sources:
     tables:
       - name: amfi_nav_daily
         description: Daily NAV file from AMFI, all schemes, one row per scheme per day
+        config:
+          loaded_at_field: loaded_at
+          freshness:
+            warn_after: {count: 2, period: day}
+            error_after: {count: 5, period: day}
       - name: nav_history
         description: Historical NAVs from mfapi.in for equity growth schemes
       - name: scheme_meta

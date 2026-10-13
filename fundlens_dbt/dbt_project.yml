@@ -7,6 +7,10 @@ snapshot-paths: ["snapshots"]
 test-paths: ["tests"]
 macro-paths: ["macros"]
 
+vars:
+  risk_free_rate: 0.065     # yearly risk-free rate used for Sharpe ratio
+  spike_threshold: 0.15     # a 15%+ jump that reverses next day = bad data
+
 models:
   fundlens:
     staging:
@@ -14,4 +18,10 @@ models:
       +materialized: view
     core:
       +schema: core
+      +materialized: table
+    intermediate:
+      +schema: intermediate
+      +materialized: table
+    marts:
+      +schema: marts
       +materialized: table

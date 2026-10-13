@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: mart_fund_metrics
+    description: One row per scheme with returns, risk, Sharpe and category rank
+    columns:
+      - name: scheme_code
+        data_tests: [unique, not_null]
+      - name: plan_type
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Direct', 'Regular']
+  - name: mart_rolling_returns
+    description: Month-end NAV with 1y and 3y rolling returns
+  - name: mart_direct_vs_regular
+    description: Direct vs Regular plan of the same fund, return gap
+    columns:
+      - name: direct_code
+        data_tests: [unique]
+      - name: regular_code
+        data_tests: [unique]
+  - name: dq_nav_issues
+    description: Data quality problems found in NAV data
