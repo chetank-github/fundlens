@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: amfi_nav_daily
+        description: Daily NAV file from AMFI, all schemes, one row per scheme per day
+      - name: nav_history
+        description: Historical NAVs from mfapi.in for equity growth schemes
+      - name: scheme_meta
+        description: Scheme details from mfapi.in
+      - name: backfill_status
+        description: One row per scheme showing if its history download worked

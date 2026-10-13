@@ -1,0 +1,1 @@
+select * from {{ ref('fct_nav_daily') }} where nav <= 0

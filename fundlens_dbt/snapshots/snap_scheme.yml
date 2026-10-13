@@ -1,0 +1,8 @@
+snapshots:
+  - name: snap_scheme
+    relation: ref('stg_scheme_latest')
+    config:
+      schema: snapshots
+      unique_key: scheme_code
+      strategy: check
+      check_cols: [scheme_name, fund_house, scheme_category, plan_type, option_name]

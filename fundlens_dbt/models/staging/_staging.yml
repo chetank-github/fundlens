@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_amfi_nav_daily
+    columns:
+      - name: scheme_code
+        data_tests: [not_null]
+      - name: nav
+        data_tests: [not_null]
+  - name: stg_scheme_latest
+    columns:
+      - name: scheme_code
+        data_tests: [unique, not_null]
